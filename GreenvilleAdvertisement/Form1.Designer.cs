@@ -40,10 +40,9 @@
             this.diabetesCheckBox = new System.Windows.Forms.CheckBox();
             this.heartConditionCheckBox = new System.Windows.Forms.CheckBox();
             this.bloodClotsCheckBox = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.noneCheckBox = new System.Windows.Forms.CheckBox();
             this.conditionsLabel = new System.Windows.Forms.Label();
-            this.returningMoreInfoButton = new System.Windows.Forms.Button();
-            this.newMoreInfoButton = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uncleSamPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +117,7 @@
             this.ageYesRadioButton.TabStop = true;
             this.ageYesRadioButton.Text = "Yes";
             this.ageYesRadioButton.UseVisualStyleBackColor = true;
+            this.ageYesRadioButton.CheckedChanged += new System.EventHandler(this.ageYesRadioButton_CheckedChanged);
             // 
             // ageNoRadioButton
             // 
@@ -130,6 +130,7 @@
             this.ageNoRadioButton.TabStop = true;
             this.ageNoRadioButton.Text = "No";
             this.ageNoRadioButton.UseVisualStyleBackColor = true;
+            this.ageNoRadioButton.CheckedChanged += new System.EventHandler(this.ageNoRadioButton_CheckedChanged);
             // 
             // ageLabel
             // 
@@ -177,17 +178,17 @@
             this.bloodClotsCheckBox.UseVisualStyleBackColor = true;
             this.bloodClotsCheckBox.Visible = false;
             // 
-            // checkBox4
+            // noneCheckBox
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(160, 309);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(57, 20);
-            this.checkBox4.TabIndex = 14;
-            this.checkBox4.Text = "None";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.Visible = false;
+            this.noneCheckBox.AutoSize = true;
+            this.noneCheckBox.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noneCheckBox.Location = new System.Drawing.Point(160, 309);
+            this.noneCheckBox.Name = "noneCheckBox";
+            this.noneCheckBox.Size = new System.Drawing.Size(57, 20);
+            this.noneCheckBox.TabIndex = 14;
+            this.noneCheckBox.Text = "None";
+            this.noneCheckBox.UseVisualStyleBackColor = true;
+            this.noneCheckBox.Visible = false;
             // 
             // conditionsLabel
             // 
@@ -195,32 +196,22 @@
             this.conditionsLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionsLabel.Location = new System.Drawing.Point(41, 274);
             this.conditionsLabel.Name = "conditionsLabel";
-            this.conditionsLabel.Size = new System.Drawing.Size(317, 16);
+            this.conditionsLabel.Size = new System.Drawing.Size(301, 16);
             this.conditionsLabel.TabIndex = 15;
-            this.conditionsLabel.Text = "Do You Currently Have Any Of The Below Conditions?";
+            this.conditionsLabel.Text = "Do you currently have any of the below conditions?";
             this.conditionsLabel.Visible = false;
             // 
-            // returningMoreInfoButton
+            // submitButton
             // 
-            this.returningMoreInfoButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returningMoreInfoButton.Location = new System.Drawing.Point(216, 440);
-            this.returningMoreInfoButton.Name = "returningMoreInfoButton";
-            this.returningMoreInfoButton.Size = new System.Drawing.Size(79, 23);
-            this.returningMoreInfoButton.TabIndex = 16;
-            this.returningMoreInfoButton.Text = "More Info";
-            this.returningMoreInfoButton.UseVisualStyleBackColor = true;
-            this.returningMoreInfoButton.Visible = false;
-            // 
-            // newMoreInfoButton
-            // 
-            this.newMoreInfoButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMoreInfoButton.Location = new System.Drawing.Point(71, 440);
-            this.newMoreInfoButton.Name = "newMoreInfoButton";
-            this.newMoreInfoButton.Size = new System.Drawing.Size(78, 23);
-            this.newMoreInfoButton.TabIndex = 17;
-            this.newMoreInfoButton.Text = "More Info";
-            this.newMoreInfoButton.UseVisualStyleBackColor = true;
-            this.newMoreInfoButton.Visible = false;
+            this.submitButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(71, 440);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(146, 23);
+            this.submitButton.TabIndex = 17;
+            this.submitButton.Text = "Submit information";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Visible = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // GreenvilleAdvertisementForm
             // 
@@ -228,10 +219,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(615, 496);
-            this.Controls.Add(this.newMoreInfoButton);
-            this.Controls.Add(this.returningMoreInfoButton);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.conditionsLabel);
-            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.noneCheckBox);
             this.Controls.Add(this.bloodClotsCheckBox);
             this.Controls.Add(this.heartConditionCheckBox);
             this.Controls.Add(this.diabetesCheckBox);
@@ -265,10 +255,9 @@
         private System.Windows.Forms.CheckBox diabetesCheckBox;
         private System.Windows.Forms.CheckBox heartConditionCheckBox;
         private System.Windows.Forms.CheckBox bloodClotsCheckBox;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox noneCheckBox;
         private System.Windows.Forms.Label conditionsLabel;
-        private System.Windows.Forms.Button returningMoreInfoButton;
-        private System.Windows.Forms.Button newMoreInfoButton;
+        private System.Windows.Forms.Button submitButton;
     }
 }
 

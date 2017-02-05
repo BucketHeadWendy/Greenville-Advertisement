@@ -38,5 +38,67 @@ namespace GreenvilleAdvertisement
         {
 
         }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            if (diabetesCheckBox.Checked)
+            {
+                IneligibleForm ineligibleForm = new IneligibleForm();
+                ineligibleForm.ShowDialog();
+            }
+
+            if (heartConditionCheckBox.Checked)
+            {
+                IneligibleForm ineligibleForm = new IneligibleForm();
+                ineligibleForm.ShowDialog();
+            }
+
+            if (bloodClotsCheckBox.Checked)
+            {
+                IneligibleForm ineligibleForm = new IneligibleForm();
+                ineligibleForm.ShowDialog();
+            }
+
+            if (noneCheckBox.Checked)
+            {
+                if (newContestantRadioButton.Checked)
+                {
+                    NewForm newForm = new NewForm();
+                    newForm.ShowDialog();
+                }
+
+                if (returningContestantRadioButton.Checked)
+                {
+                    ReturningForm returningForm = new ReturningForm();
+                    returningForm.ShowDialog();
+                }
+            }
+        }
+
+        private void ageYesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            conditionsLabel.Text = "Do you currently have any of the below conditions?";
+            conditionsLabel.Visible = true;
+            diabetesCheckBox.Visible = true;
+            heartConditionCheckBox.Visible = true;
+            bloodClotsCheckBox.Visible = true;
+            noneCheckBox.Visible = true;
+            newContestantRadioButton.Visible = true;
+            returningContestantRadioButton.Visible = true;
+            submitButton.Visible = true;
+        }
+
+        private void ageNoRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            conditionsLabel.Text = "We're sorry, but you are currently too young to enter in \nthis year's race.";
+            conditionsLabel.Visible = true;
+            diabetesCheckBox.Visible = false;
+            heartConditionCheckBox.Visible = false;
+            bloodClotsCheckBox.Visible = false;
+            noneCheckBox.Visible = false;
+            newContestantRadioButton.Visible = false;
+            returningContestantRadioButton.Visible = false;
+            submitButton.Visible = false;
+        }
     }
 }
